@@ -1,0 +1,729 @@
+/* -----------------------------------------------------------------
+   ✨ PREMIUM THEME CONFIGURATION (Indigo & Slate)
+   NOTE: This block defines all necessary color, font, and shadow variables.
+----------------------------------------------------------------- */
+:root {
+  /* Brand Colors */
+  --primary: #4f46e5;       /* Indigo 600 */
+  --primary-hover: #4338ca; /* Indigo 700 */
+  --primary-light: #eef2ff; /* Indigo 50 */
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  
+  /* Text Colors */
+  --text-main: #0f172a;     /* Slate 900 */
+  --text-secondary: #475569;/* Slate 600 */
+  --text-muted: #94a3b8;    /* Slate 400 */
+  
+  /* Surfaces & Borders */
+  --border: #e2e8f0;        
+  --bg-app: #f1f5f9;        /* Slate 100 */
+  --bg-surface: #ffffff;
+  
+  /* Status Colors (Mapping old to new usage) */
+  --success-color: #10b981;  /* Emerald 500 */
+  --danger-color: #ef4444;   /* Red 500 */
+  --info-color: #3b82f6;     /* Blue 500 */
+  
+  /* Modern Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  
+  /* 🌟 Premium Shadows */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-glow: 0 0 0 4px rgba(99, 102, 241, 0.15); /* Focus ring */
+  
+  /* 📄 Paper Shadow (Specific to A4 preview) */
+  --paper-shadow: 
+    0 1px 1px rgba(0,0,0,0.08), 
+    0 2px 2px rgba(0,0,0,0.08), 
+    0 4px 4px rgba(0,0,0,0.08), 
+    0 8px 8px rgba(0,0,0,0.08),
+    0 16px 16px rgba(0,0,0,0.08);
+
+  /* Specific status background colors for document types */
+  --bg-success-light: #d1fae5;
+  --bg-danger-light: #fee2e2;
+}
+
+* { box-sizing: border-box; }
+
+
+/* -----------------------------------------------------------------
+   1. MAIN LISTING PAGE STYLES (Header & Table)
+----------------------------------------------------------------- */
+
+.agreements-page {
+    padding: 24px;
+    background-color: var(--bg-app);
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+}
+
+/* --- Card Shadow Utility (Updated to new theme variables) --- */
+.card-shadow {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+}
+
+/* --- Header Section (List Page - Products Page Inspired Layout) --- */
+.agreements-page__header {
+    padding: 20px 25px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+
+.header-info .header-title {
+    font-size: 24px;
+    color: var(--text-main);
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-info .header-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* --- Action Button (Now using Indigo Gradient) --- */
+.btn-success-green { 
+    height: 40px;
+    padding: 0 20px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-success-green:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+/* --- FILTER PANEL STYLING (Adapted from Reports to Indigo Theme) --- */
+.filter-panel {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end; /* Align items nicely */
+    flex-wrap: wrap;
+    padding: 20px 25px; /* Adjusting padding for filter card */
+    margin-bottom: 30px;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    min-width: 150px;
+}
+
+.filter-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.input-with-icon {
+    position: relative;
+    width: 100%;
+}
+
+.filter-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px; /* FIXED: Adjusted left position for clearance */
+    color: var(--text-secondary);
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.filter-panel input[type="date"],
+.filter-panel select.input-field {
+    /* Use same styling as general inputs defined below in Modal section */
+    height: 40px; 
+    padding: 10px 16px 10px 40px; /* FIXED: Increased left padding to accommodate icon */
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-main);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Using shadow-sm value */
+}
+
+.filter-panel input:focus,
+.filter-panel select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.filter-button-action {
+    height: 40px;
+    padding: 0 15px;
+    margin-top: 20px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* --- Table Content Card --- */
+.agreements-content {
+    /* Uses .card-shadow defined above */
+}
+
+.agreements-content .content-title {
+    font-size: 18px;
+    color: var(--text-main);
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- Custom Cell Styling (Document Type Badges) --- */
+.document-type {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.document-type--invoice, .document-type--letter {
+    color: var(--primary);
+    background-color: var(--primary-light);
+}
+
+.document-type--paddy-receipt {
+    color: var(--success-color);
+    background-color: var(--bg-success-light); 
+}
+
+.document-type--lease-agreement {
+    color: var(--danger-color);
+    background-color: var(--bg-danger-light); 
+}
+
+.document-type--default, .document-type--rtgs {
+    color: var(--text-secondary);
+    background-color: #f1f5f9; 
+}
+
+.amount-cell {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* --- Action Buttons (Table Row) --- */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.btn-edit {
+    color: var(--primary);
+}
+
+.btn-delete {
+    color: var(--danger-color);
+}
+
+.btn-icon:hover {
+    background-color: var(--primary-light);
+}
+
+/* -----------------------------------------------------------------
+   2. MODAL CONTENT STYLES (Document Generator - From User's New Block)
+   (Rest of the modal styles remain unchanged)
+----------------------------------------------------------------- */
+
+.agreement-generator-container {
+  display: flex;
+  height: calc(100vh - 110px); 
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+/* 🎛 LEFT PANEL: CONTROLS */
+.generator-controls {
+  width: 420px; 
+  min-width: 380px;
+  background: var(--bg-surface);
+  padding: 28px;
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  
+  /* Fancy Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.generator-controls::-webkit-scrollbar { width: 6px; }
+.generator-controls::-webkit-scrollbar-track { background: transparent; }
+.generator-controls::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 20px; }
+
+.controls-header {
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.controls-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, var(--primary), #1e1b4b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- FORM ELEMENTS --- */
+.control-form { display: flex; flex-direction: column; gap: 20px; }
+
+.form-section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  font-weight: 800;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--primary-light), transparent);
+}
+
+.form-row { display: flex; gap: 12px; }
+.form-row-tight { display: flex; gap: 8px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+/* --- PREMIUM INPUTS & SELECTS (General for Modal Forms) --- */
+/* NOTE: Filter inputs inherit some styles from here via .input-field class */
+.input-field,
+.form-group input:not([type="date"]), 
+.form-group select:not([name="type"]), /* Exclude date/type inputs which are styled specifically for filters */
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-main);
+  background: #ffffff;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+}
+
+/* Input Hover & Focus States */
+.input-field:hover, .form-group input:hover, .form-group select:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.input-field:focus, .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  background: #ffffff;
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+/* --- SPECIAL PREMIUM DROPDOWN STYLE --- */
+select.input-field {
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234f46e5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 45px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--primary);
+  background-color: #f0fdfa;
+  border-color: #cbd5e1;
+}
+
+select.input-field:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+}
+
+/* Styling the options inside (Browser dependent but helps) */
+select.input-field optgroup {
+  font-weight: 800;
+  color: var(--text-main);
+  font-style: normal;
+  padding: 10px;
+}
+
+select.input-field option {
+  padding: 10px;
+  color: #333;
+  background: #fff;
+  font-weight: 500;
+}
+
+/* --- ITEM CARDS (Floating Effect) --- */
+.item-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.item-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+/* --- BUTTONS (Standard primary button is now .btn-primary) --- */
+.form-actions {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+}
+
+button { cursor: pointer; transition: all 0.2s; border: none; outline: none; }
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 13px;
+  flex: 1;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 13px;
+}
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: var(--text-main);
+}
+
+.btn-print {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  color: #ea580c;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 13px;
+}
+.btn-print:hover {
+  background: #ffedd5;
+  transform: translateY(-1px);
+}
+
+.btn-add-row {
+  width: 100%;
+  background: #f0fdf4;
+  border: 1px dashed #22c55e;
+  color: #166534;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn-add-row:hover {
+  background: #dcfce7;
+  border-style: solid;
+}
+
+.btn-danger-sm {
+  background: none;
+  color: var(--danger-color);
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: underline;
+  align-self: flex-end;
+  opacity: 0.8;
+}
+.btn-danger-sm:hover { opacity: 1; color: #dc2626; }
+
+/* -----------------------------------------------------------------
+   📄 RIGHT PANEL: PREVIEW 
+----------------------------------------------------------------- */
+.generator-preview-pane {
+  flex: 1;
+  background-color: #334155;
+  background-image: radial-gradient(#64748b 1px, transparent 1px);
+  background-size: 24px 24px;
+  padding: 40px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* The A4 Paper */
+.a4-paper {
+  background: white;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm;
+  box-shadow: var(--paper-shadow);
+  color: #000;
+  font-family: 'Times New Roman', serif;
+  font-size: 12pt;
+  line-height: 1.4;
+  position: relative;
+  
+  -webkit-font-smoothing: antialiased;
+  transform-origin: top center;
+}
+
+/* -----------------------------------------------------------------
+   🖋 PROFESSIONAL DOCUMENT STYLES (Within A4)
+----------------------------------------------------------------- */
+.doc-header { 
+  display: flex; 
+  justify-content: space-between; 
+  border-bottom: 3px double #000; 
+  padding-bottom: 15px; 
+  margin-bottom: 25px; 
+}
+
+.doc-title { 
+  text-align: center; 
+  font-family: 'Inter', sans-serif; 
+  font-size: 22px; 
+  font-weight: 900; 
+  text-decoration: underline; 
+  margin: 20px 0; 
+  color: #1e3a8a; 
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+}
+
+.doc-section-title { 
+  font-family: 'Inter', sans-serif; 
+  font-weight: 700; 
+  border-bottom: 1px solid #ccc; 
+  margin-top: 25px; 
+  margin-bottom: 10px; 
+  text-transform: uppercase; 
+  font-size: 11px; 
+  color: #047857; 
+  letter-spacing: 0.5px;
+}
+
+.doc-text { font-size: 11pt; line-height: 1.6; text-align: justify; margin-bottom: 8px; }
+
+.doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 20px; }
+
+.doc-box { 
+  border: 1px solid #000; 
+  padding: 12px; 
+  font-family: 'Inter', sans-serif; 
+  font-size: 10pt; 
+  background: #fff; 
+}
+
+.doc-box-title { 
+  font-weight: bold; 
+  border-bottom: 1px solid #000; 
+  padding-bottom: 5px; 
+  margin-bottom: 8px; 
+  background: #f1f5f9; 
+  font-size: 9pt; 
+  text-transform: uppercase; 
+}
+
+.doc-row { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-bottom: 5px; 
+  border-bottom: 1px dashed #e5e7eb; 
+  padding-bottom: 2px; 
+}
+.doc-row:last-child { border-bottom: none; }
+
+.doc-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-bottom: 25px; 
+  font-family: 'Inter', sans-serif; 
+  font-size: 10pt; 
+}
+
+.doc-table th, .doc-table td { border: 1px solid #000; padding: 8px 10px; }
+.doc-table th { 
+  background-color: #f1f5f9; 
+  font-weight: bold; 
+  text-align: center; 
+  text-transform: uppercase; 
+  font-size: 9pt; 
+}
+.doc-table td.right { text-align: right; }
+
+/* ---------------------------------------------
+   ✍️ SIGNATURE SECTION (Premium & Fixed)
+--------------------------------------------- */
+.doc-signature-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end;
+  margin-top: 60px;
+  padding-top: 10px;
+  page-break-inside: avoid;
+  width: 100%;
+}
+
+.doc-signature-block {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+/* 1. Top Label (e.g. "For Company") */
+.doc-sig-header {
+  font-size: 10pt;
+  font-weight: 800;
+  margin-bottom: 40px;
+  text-align: left;
+  color: #000;
+}
+
+/* 2. Name Text (e.g. "Ramesh Singh") */
+.doc-sig-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+/* 3. The Line (Separated for better control) */
+.doc-sig-line {
+  border-bottom: 1px solid #000;
+  width: 100%;
+  height: 1px;
+  margin: 4px 0;
+}
+
+/* 4. Role / Designation (Bottom) */
+.doc-sig-role {
+  font-size: 9pt;
+  color: #64748b;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Alignment Helper */
+.align-right { text-align: right; align-items: flex-end; }
+.align-left { text-align: left; align-items: flex-start; }
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 1100px) {
+  .agreement-generator-container { flex-direction: column; height: auto; overflow: visible; }
+  .generator-controls { width: 100%; border-right: none; border-bottom: 1px solid var(--border); min-width: auto; }
+  .generator-preview-pane { padding: 20px; }
+  .a4-paper { width: 100%; padding: 15px; min-height: 500px; }
+}

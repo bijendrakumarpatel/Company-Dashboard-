@@ -1,0 +1,175 @@
+/* --- VARIABLES & THEME (Consistent with Agreements) --- */
+:root {
+  --primary: #4f46e5;
+  --primary-light: #eef2ff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --bg-surface: #ffffff;
+  --radius-md: 12px;
+  
+  /* Status Colors */
+  --status-paid-bg: #dcfce7; --status-paid-text: #166534;
+  --status-pending-bg: #fef9c3; --status-pending-text: #854d0e;
+  --status-failed-bg: #fee2e2; --status-failed-text: #991b1b;
+  --status-shipped-bg: #e0f2fe; --status-shipped-text: #075985;
+
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.orders-page {
+  padding: 24px;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- HEADER --- */
+.orders-page__header {
+  background: var(--bg-surface);
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.orders-page__title h1 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.orders-page__subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* --- TABLE STYLES ENHANCEMENT --- */
+.orders-content {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-float);
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* --- BADGES --- */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-paid { background: var(--status-paid-bg); color: var(--status-paid-text); }
+.status-pending { background: var(--status-pending-bg); color: var(--status-pending-text); }
+.status-failed, .status-cancelled { background: var(--status-failed-bg); color: var(--status-failed-text); }
+.status-shipped, .status-processing { background: var(--status-shipped-bg); color: var(--status-shipped-text); }
+
+/* --- BUTTONS --- */
+.btn-view {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-view:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+}
+
+.amount-cell {
+  font-family: 'Inter', monospace;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* --- ORDER DETAILS MODAL (INVOICE LOOK) --- */
+.order-details-container {
+  padding: 10px;
+  color: var(--text-main);
+}
+
+.od-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px dashed var(--border);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.od-id-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.od-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.od-value-lg {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.od-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.od-box {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.od-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.od-row span:first-child { color: var(--text-muted); }
+.od-row span:last-child { font-weight: 600; }
+
+.od-total-section {
+  background: var(--primary-light);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #c7d2fe;
+}
+
+.od-total-label { font-size: 14px; font-weight: 600; color: var(--primary); }
+.od-total-amount { font-size: 24px; font-weight: 800; color: var(--primary); }

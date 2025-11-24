@@ -1,0 +1,24 @@
+/* Import custom CSS resets and variables */
+@import "./reset.css";
+@import "./variables.css";
+
+/* moved Tailwind directives after imports (required by PostCSS) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global project styling */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}

@@ -1,0 +1,260 @@
+/* -------------------------
+   PREMIUM MODERN SIDEBAR UI
+--------------------------*/
+
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  height: 100vh;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  box-sizing: border-box;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.06);
+  padding: 20px 16px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 40;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
+
+/* Added mobile sidebar styles */
+.sidebar__overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 39;
+}
+
+.sidebar__header {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar__close {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #047857;
+}
+
+/* Brand Section */
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar__brand-logo {
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #047857, #06b6d4);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 14px rgba(4, 120, 87, 0.3);
+}
+
+.sidebar__brand-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #047857;
+  white-space: nowrap;
+}
+
+/* Navigation */
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.sidebar__link-dot {
+  width: 8px;
+  height: 8px;
+  background: #c3c3c3;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.sidebar__link:hover {
+  background: rgba(4, 120, 87, 0.1);
+  color: #047857;
+  transform: translateX(4px);
+}
+
+.sidebar__link:hover .sidebar__link-dot {
+  background: #047857;
+}
+
+.sidebar__link--active {
+  background: linear-gradient(135deg, #047857, #06b6d4);
+  color: white;
+  font-weight: 600;
+  transform: translateX(6px);
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.4);
+}
+
+.sidebar__link--active .sidebar__link-dot {
+  background: white;
+}
+
+/* Footer */
+.sidebar__footer {
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar__user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+.sidebar__user-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #047857, #06b6d4);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.sidebar__user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.sidebar__user-email {
+  font-size: 11px;
+  color: #999;
+  margin: 2px 0 0;
+}
+
+.sidebar__logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: #fee2e2;
+  color: #c33;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.sidebar__logout-btn:hover {
+  background: #fecaca;
+  transform: translateY(-2px);
+}
+
+/* Modal Z-Index Fix */
+div[class*="modal"],
+div[class*="overlay"],
+.modal-overlay,
+.overlay {
+  z-index: 9999 !important;
+}
+
+div[class*="modal-content"],
+.modal-container {
+  z-index: 10000 !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+    padding: 16px 12px;
+  }
+
+  .sidebar__brand-name {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    width: 260px;
+    height: 100vh;
+    z-index: 98;
+  }
+
+  .sidebar--open {
+    left: 0;
+  }
+
+  .sidebar__overlay {
+    display: block;
+  }
+
+  .sidebar__header {
+    display: flex;
+  }
+
+  .sidebar__close {
+    display: block;
+  }
+
+  .sidebar__nav {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    max-width: 280px;
+  }
+}

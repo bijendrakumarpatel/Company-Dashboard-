@@ -1,0 +1,332 @@
+/* -----------------------------------------------------------------
+   ✨ PREMIUM THEME CONFIGURATION (Indigo & Slate)
+   NOTE: This block defines all necessary color, font, and shadow variables.
+----------------------------------------------------------------- */
+:root {
+  /* Brand Colors */
+  --primary: #4f46e5;       /* Indigo 600 */
+  --primary-hover: #4338ca; /* Indigo 700 */
+  --primary-light: #eef2ff; /* Indigo 50 */
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  
+  /* Text Colors */
+  --text-main: #0f172a;     /* Slate 900 */
+  --text-secondary: #475569;/* Slate 600 */
+  --text-muted: #94a3b8;    /* Slate 400 */
+  
+  /* Surfaces & Borders */
+  --border: #e2e8f0;        
+  --bg-app: #f1f5f9;        /* Slate 100 */
+  --bg-surface: #ffffff;
+  
+  /* Status Colors */
+  --success-color: #10b981;  /* Emerald 500 */
+  --danger-color: #ef4444;   /* Red 500 */
+  
+  /* Modern Radius */
+  --radius-sm: 8px;
+  
+  /* 🌟 Premium Shadows */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-glow: 0 0 0 4px rgba(99, 102, 241, 0.15); /* Focus ring */
+}
+
+* { box-sizing: border-box; }
+
+/* -----------------------------------------------------------------
+   1. MAIN PAGE LAYOUT & LISTING STYLES
+----------------------------------------------------------------- */
+.expenses-page {
+    padding: 24px;
+    background-color: var(--bg-app);
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+}
+
+/* --- Card Shadow Utility (Consistent across dashboard) --- */
+.card-shadow {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+}
+
+/* --- Header Section (Title and Add Button) --- */
+.expenses-page__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 15px;
+    padding: 20px 25px; 
+}
+
+.header-info .header-title {
+    font-size: 24px;
+    color: var(--text-main);
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-info .header-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* --- Add Button (Indigo Gradient) --- */
+.btn-success-green { 
+    height: 40px;
+    padding: 0 20px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-success-green:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+
+/* -----------------------------------------------------------------
+   2. FILTER PANEL STYLES
+----------------------------------------------------------------- */
+.filter-panel {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end; 
+    flex-wrap: wrap;
+    padding: 20px 25px; 
+    margin-bottom: 30px;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    min-width: 150px;
+}
+
+.filter-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.input-with-icon {
+    position: relative;
+    width: 100%;
+}
+
+.filter-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px; 
+    color: var(--text-secondary);
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.filter-panel input[type="date"],
+.filter-panel select.input-field {
+    height: 40px; 
+    padding: 10px 16px 10px 40px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-main);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+}
+
+.filter-panel input:focus,
+.filter-panel select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.filter-button-action {
+    height: 40px;
+    padding: 0 15px;
+    margin-top: 20px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* -----------------------------------------------------------------
+   3. TABLE CONTENT STYLES
+----------------------------------------------------------------- */
+.expenses-content {
+    min-height: 300px;
+}
+
+.expenses-content .content-title {
+    font-size: 18px;
+    color: var(--text-main);
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- Custom Cell Styling --- */
+.amount-cell {
+    font-weight: 700;
+    color: var(--danger-color);
+}
+
+/* --- Action Buttons (Table Row) --- */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.btn-edit {
+    color: var(--primary);
+}
+
+.btn-delete {
+    color: var(--danger-color);
+}
+
+.btn-icon:hover {
+    background-color: var(--primary-light);
+}
+
+/* --- Fallback for DataTable styles if not global --- */
+.data-table-container th {
+    background-color: var(--bg-app);
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+}
+
+.data-table-container td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+/* -----------------------------------------------------------------
+   4. MODAL FORM STYLES (EXPENSEADDFORM)
+   NOTE: Replaced inline CSS from ExpenseAddForm with these global classes.
+----------------------------------------------------------------- */
+
+.control-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 10px 0; /* Adjusted padding for better fit inside the modal */
+}
+
+/* This class helps align modal form elements */
+.form-padding-cleanup .form-group {
+    margin-bottom: 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Label styling inherited from .filter-group label, but enhanced for forms */
+.control-form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+/* Input/Textarea styling uses the premium .input-field class */
+.control-form .input-field {
+    /* Inherits padding, border, focus state from global input-field definition */
+    padding: 10px 12px 10px 40px; /* Added padding for icon in modal inputs */
+}
+
+.control-form .input-with-icon .input-icon {
+    /* Ensures icon positioning is correct for modal form inputs */
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+.control-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Action Button styling inherited from global theme buttons */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+}
+
+/* .btn-primary and .btn-secondary (Cancel) are defined globally. */
+.btn-secondary {
+    flex: none; /* Do not stretch the buttons in modal actions */
+}
+
+.btn-primary {
+    flex: none;
+}

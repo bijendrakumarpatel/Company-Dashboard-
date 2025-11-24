@@ -1,0 +1,211 @@
+/* --- Variables for Professional Look --- */
+:root {
+    --primary-color: #007bff; /* A clean blue */
+    --secondary-color: #6c757d;
+    --background-color: #f4f7f9; /* Light, clean background */
+    --card-background: #ffffff;
+    --border-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+
+    --success-color: #28a745; /* For Sales */
+    --danger-color: #dc3545; /* For Expenses */
+    --info-color: #ffc107; /* For Payments */
+}
+
+.reports-page {
+    padding: 20px;
+    background-color: var(--background-color);
+    min-height: 100vh; /* Ensure background covers the page */
+}
+
+/* --- Headers --- */
+.reports-header {
+    margin-bottom: 25px;
+}
+
+.reports-title {
+    font-size: 24px;
+    color: #343a40;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* --- Card Styling for premium look --- */
+.card-shadow {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+/* --- Filter Panel Styling --- */
+.filter-panel {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end; /* Align items nicely */
+    flex-wrap: wrap; /* Added for responsiveness on smaller screens */
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative; /* For icon positioning */
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: #495057;
+    font-size: 14px;
+}
+
+.filter-icon {
+    position: absolute;
+    top: 35px; /* Adjusted based on input height */
+    left: 10px;
+    color: var(--secondary-color);
+    font-size: 14px;
+}
+
+.filter-panel input[type="date"],
+.filter-panel select {
+    padding: 8px 10px 8px 35px; /* Added left padding for the icon */
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    min-width: 150px;
+    height: 38px;
+    font-size: 14px;
+}
+
+.filter-panel input:focus,
+.filter-panel select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* --- Filter Button --- */
+.filter-button {
+    height: 38px;
+    padding: 0 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Map Styling --- */
+.reports-map h3 {
+    font-size: 18px;
+    color: #343a40;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.map-container {
+    /* Critical: Maps need a defined height */
+    height: 400px;
+    border-radius: 6px;
+    overflow: hidden; /* Ensures map corner radius is clean */
+}
+
+/* Style the react-leaflet map container directly */
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* Optional: Style for the popup box */
+.map-popup strong {
+    color: var(--primary-color);
+}
+
+
+/* --- Data Table Section --- */
+.reports-data h3 {
+    font-size: 18px;
+    color: #343a40;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* --- Custom Table Styling (Assuming DataTable needs some base CSS) --- */
+/* (You should also update the CSS for DataTable component for a premium look) */
+.data-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table-container th {
+    background-color: #f8f9fa; /* Light grey header */
+    color: var(--secondary-color);
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.data-table-container td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+    color: #495057;
+}
+
+.data-table-container tr:hover {
+    background-color: #fefefe; /* Subtle hover effect */
+}
+
+/* --- Custom Cell Styling (Added in Reports.jsx) --- */
+.report-type {
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.report-type--sales {
+    color: var(--success-color);
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.report-type--expenses {
+    color: var(--danger-color);
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.report-type--payments {
+    color: var(--info-color);
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.report-amount {
+    font-weight: 700;
+    color: #212529;
+}

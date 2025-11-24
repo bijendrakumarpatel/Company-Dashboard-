@@ -1,0 +1,290 @@
+/* =========================================
+   0. ANIMATIONS (Refined Premium Feel)
+   ========================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Subtler pulse for professional look */
+@keyframes softPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+/* =========================================
+   1. PAGE LAYOUT & HEADER (Advanced Glassmorphism)
+   ========================================= */
+.customers-page { 
+  padding: 24px;
+  background-color: #f5f6f7; /* Slightly deeper background for contrast */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; 
+  animation: fadeInUp 0.7s cubic-bezier(0.2, 0.8, 0.5, 1) forwards;
+}
+
+.customers-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Enhanced Glassmorphism */
+  background: rgba(255, 255, 255, 0.98); /* Almost opaque white background */
+  backdrop-filter: blur(25px); /* Sharper blur effect */
+  -webkit-backdrop-filter: blur(25px);
+  
+  padding: 28px 30px;
+  border-radius: 20px; 
+  border: 1px solid rgba(255, 255, 255, 0.9); /* Subtle, light border */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08), /* Deeper overall shadow */
+    0 1px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.customers-page__header:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15); /* Lift higher on hover */
+}
+
+.products-page__title {
+  font-size: 28px; 
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.04em;
+  /* Darker, richer green gradient for brand identity */
+  background: linear-gradient(45deg, #065f46, #166534); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.products-page__subtitle {
+  font-size: 15px;
+  color: #4b5563;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* =========================================
+   2. BUTTONS (Tactile & Deep Shadow)
+   ========================================= */
+
+/* Primary Button (New Product) */
+.primary-btn {
+  padding: 14px 28px; 
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  /* Rich Emerald Green Gradient */
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Enhanced Deep Shadow */
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px); /* Larger lift on hover */
+  box-shadow: 0 15px 30px rgba(16, 185, 129, 0.7);
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+}
+
+.primary-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Secondary Button (Export to CSV) */
+.secondary-btn {
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db; /* Sharper border */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.secondary-btn:hover {
+  background: #f0f1f2; /* Deeper hover color */
+  border-color: #a1a1aa;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.secondary-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Action Buttons inside Table */
+.action-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.edit-btn {
+  background-color: #ffffff;
+  color: #4b5563;
+  border-color: #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.edit-btn:hover {
+  background-color: #eff6ff; /* Light blue hover */
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.delete-btn {
+  background-color: #fef2f2;
+  color: #b91c1c; 
+  border-color: #fecaca;
+}
+
+.delete-btn:hover {
+  background-color: #ffcccc;
+  color: #991b1b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(225, 29, 72, 0.3);
+}
+
+/* =========================================
+   3. TABLE STYLING (Subtle Interaction)
+   ========================================= */
+.table-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  /* Deep, defined shadow */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); 
+  min-height: 400px;
+  transition: box-shadow 0.3s ease;
+}
+
+.table-wrapper:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Row Interaction */
+.table-wrapper table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.table-wrapper table tbody tr:hover {
+  background-color: #f2f4f6; /* Clear highlight color */
+  transform: scale(1.002);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* --- PRODUCT IMAGE THUMBNAIL --- */
+.product-thumbnail {
+    width: 44px; 
+    height: 44px;
+    border-radius: 8px; /* Square corners look cleaner for product images */
+    object-fit: cover;
+    border: 1px solid #d1d5db;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.product-thumbnail:hover {
+    transform: scale(1.05);
+    border-color: #10b981;
+}
+
+/* =========================================
+   4. BADGES (Category Indicators - Textured)
+   ========================================= */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.badge:hover {
+  transform: scale(1.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Grains (Forest Green) */
+.badge-grains {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #a7f3d0;
+}
+
+/* Oilseeds (Deep Amber/Orange) */
+.badge-oil {
+  background-color: #fff7ed;
+  color: #b45309;
+  border: 1px solid #fed7aa;
+}
+
+/* Packaging Material (Ocean Blue) */
+.badge-packaging {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* Other (Neutral Gray) */
+.badge-other {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+/* =========================================
+   5. INVENTORY STATUS (High Contrast)
+   ========================================= */
+.stock-ok {
+    color: #059669; /* Rich Green */
+}
+
+.stock-low {
+    color: #dc2626; /* Vibrant Red */
+    font-weight: 700 !important;
+    animation: softPulse 1.5s ease-in-out infinite;
+}
+
+/* =========================================
+   6. SCROLLBAR (Premium Feature)
+   ========================================= */
+.table-wrapper::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
